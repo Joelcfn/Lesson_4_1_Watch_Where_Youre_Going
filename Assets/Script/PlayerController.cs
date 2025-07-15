@@ -32,4 +32,13 @@ private void OnTriggerEnter(Collider other)
     }
 }
 
+private void OnCollisionEnter(Collision collision)
+{
+    if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
+    {
+        Debug.Log("Collided with: " + collision.gameObject.name + " with powerup set to " + hasPowerup);
+    }
+}
+
+
 }
