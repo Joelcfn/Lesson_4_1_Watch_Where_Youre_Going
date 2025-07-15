@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,8 +32,17 @@ private void OnTriggerEnter(Collider other)
     {
         hasPowerup = true;
         Destroy(other.gameObject);
+          StartCoroutine(PowerupCountdownRoutine());
     }
 }
+
+IEnumerator PowerupCountdownRoutine()
+{
+    yield return new WaitForSeconds(7);
+    hasPowerup = false;
+    //powerUpIndicator.gameObject.SetActive(false);
+}
+
 
 private void OnCollisionEnter(Collision collision)
 {
